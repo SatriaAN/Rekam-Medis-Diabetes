@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\PasienModel;
+use Config\Session;
 
 class Pasien extends BaseController
 {
@@ -15,7 +16,7 @@ class Pasien extends BaseController
 
     public function index()
     {
-
+        helper('form');
         $data = [
             'title' => 'Daftar Pasien',
             'pasien' => $this->pasienModel->getPasien(),
@@ -26,23 +27,69 @@ class Pasien extends BaseController
     }
 
     public function create()
-    {
-        helper('form');
+    {  
+        session();
         $data = [
-            'menu' => 'pasien'
+            'menu' => 'pasien',
+            'validation' => \Config\Services::validation()
         ];
 
-        return view('pasien/tambah_pasien',$data);
+        return view('pasien/tambah_pasien', $data);
+    }
+
+    public function save()
+    {
+        dd('success');
     }
 
     public function simpandata()
     {
+   
         $nama = $this->request->getVar('nama');
         $email = $this->request->getVar('email');
         $nomorHp = $this->request->getVar('nomorHp');
         $umur = $this->request->getVar('umur');
         $jenisKelamin = $this->request->getVar('jenisKelamin');
         $alamat = $this->request->getVar('alamat');
+        
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Harus diisi'
+                ]
+            ],
+            'email' => [
+                'rules' => 'required|valid_email',
+                'errors' => [
+                    'required' => '{field} Harus diisi',
+                    'valid_email' => 'Format Email Harus Valid'
+                ]
+            ],
+            'umur' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Harus diisi'
+                ]
+            ],
+            'nomorHp' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Harus diisi'
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Harus diisi'
+                ]
+            ]
+        ])) {
+            session()->setFlashdata('error', $this->validator->listErrors());
+            return redirect()->back()->withInput();
+        } else {
+            print_r($this->request->getVar());
+        }
 
         $data = [
             'nama' => $nama,

@@ -39,6 +39,7 @@ $routes->get('/dashboard', 'Dashboard::index');
 $routes->get('/pasien', 'Pasien::index');
 $routes->get('/pasien/tambah-pasien', 'Pasien::create');
 $routes->post('/pasien/simpandata', 'Pasien::simpandata');
+$routes->post('/pasien/save', 'Pasien::save');
 $routes->add('/pasien/edit_pasien/(:any)', 'Pasien::edit/$1');
 $routes->add('/pasien/update', 'Pasien::update');
 $routes->get('/pasien/delete_pasien/(:any)', 'Pasien::delete/$1');
