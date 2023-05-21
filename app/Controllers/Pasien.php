@@ -3,26 +3,26 @@
 namespace App\Controllers;
 
 use App\Models\PasienModel;
-use Config\Session;
+use Config\session;
 
 class Pasien extends BaseController
 {
-    protected $pasienModel;
-    
+    protected $pasienModel;    
+    protected $session;
     public function __construct()
     {
         $this->pasienModel = new PasienModel();
+        $this->session = \Config\Services::session();
+
     }
 
     public function index()
     {
-        helper('form');
         $data = [
             'title' => 'Daftar Pasien',
             'pasien' => $this->pasienModel->getPasien(),
-            'menu' => 'pasien'
+            'menu' => 'pasien',
         ];
-
         return view('pasien/index',$data);
     }
 
@@ -36,12 +36,7 @@ class Pasien extends BaseController
 
         return view('pasien/tambah_pasien', $data);
     }
-
-    public function save()
-    {
-        dd('success');
-    }
-
+    
     public function simpandata()
     {
    
@@ -97,10 +92,10 @@ class Pasien extends BaseController
             'no_hp' => $nomorHp,
             'umur' => $umur,
             'jenis_kelamin' => $jenisKelamin,
-            'alamat' => $alamat
+            'alamat' => $alamat,
         ];
-
         $this->pasienModel->save($data);
+        $this->session->setFlashdata('pesan','Data Pasien Berhasil Ditambahkan');
         return redirect()->to('/pasien');
     }
 
@@ -133,6 +128,7 @@ class Pasien extends BaseController
         ];
 
         $this->pasienModel->save($data);
+        $this->session->setFlashdata('pesan','Data Pasien Berhasil Diubah');
         return redirect()->to('/pasien');
     }
 
