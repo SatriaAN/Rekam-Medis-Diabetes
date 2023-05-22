@@ -28,7 +28,6 @@ class Pasien extends BaseController
 
     public function create()
     {  
-        session();
         $data = [
             'menu' => 'pasien',
             'validation' => \Config\Services::validation()

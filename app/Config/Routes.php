@@ -49,6 +49,12 @@ $routes->add('/users/edit_user/(:any)', 'Users::edit/$1');
 $routes->add('/users/update', 'Users::update');
 $routes->get('/users/delete_user/(:any)', 'Users::delete/$1');
 
+$routes->get('/dashboard/tambah', 'Dashboard::create');
+$routes->get('/dashboard/store', 'Dashboard::store');
+$routes->add('/dashboard/edit/(:any)', 'Dashboard::edit/$1');
+$routes->add('/dashboard/update', 'Dashboard::update');
+$routes->get('/dashboard/delete/(:any)', 'Dashboard::delete/$1');
+
 
 
 
