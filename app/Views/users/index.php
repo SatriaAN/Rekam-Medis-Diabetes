@@ -5,6 +5,8 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Pasien</h1>
     </div>
+    <div class="flash-data" data-flashdata="<?= session()->getFlashdata('pesan') ?>"></div>
+
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Data Pasien</h6>
@@ -17,7 +19,7 @@
                             <th>No</th>
                             <th>Email</th>
                             <th>Username</th>
-                            <th>Status</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,7 +29,12 @@
                             <td><?= $no++ ?></td>
                             <td><?= $user['email'] ?></td>
                             <td><?= $user['username'] ?></td>
-                            <td><?= $user['active'] ?></td>
+                            <td>
+                                <a class="btn btn-sm btn-warning"
+                                    href="<?= base_url('users/edit_user/' . $user['id']);?>">Edit</a>
+                                <a class="btn btn-sm btn-danger tombolDelete"
+                                    href="<?= base_url('users/delete_user/' . $user['id']);?>">Hapus</a>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

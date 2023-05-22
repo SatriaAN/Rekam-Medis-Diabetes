@@ -76,7 +76,7 @@
             <h2>Rekam Medis <span>Diabetes</span></h2>
             <p>Selamat Datang Di Website Rekam Medis Diabetes</p>
             <div class="d-flex">
-                <a href="<?= base_url('login') ?>" class="btn-get-started scrollto">Get Started</a>
+                <a href="<?= base_url('/dashboard') ?>" class="btn-get-started scrollto">Get Started</a>
             </div>
         </div>
     </section>

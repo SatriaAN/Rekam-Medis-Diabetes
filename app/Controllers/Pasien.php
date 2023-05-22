@@ -135,6 +135,7 @@ class Pasien extends BaseController
     public function delete($id)
     {
         $this->pasienModel->delete($id);
+        $this->session->setFlashdata('pesan','Data Pasien Berhasil Dihapus');
         return redirect()->to('/pasien');
     }
 }

@@ -42,9 +42,15 @@ $routes->post('/pasien/simpandata', 'Pasien::simpandata');
 $routes->post('/pasien/save', 'Pasien::save');
 $routes->add('/pasien/edit_pasien/(:any)', 'Pasien::edit/$1');
 $routes->add('/pasien/update', 'Pasien::update');
-$routes->get('/pasien/delete_pasien/(:any)', 'Pasien::delete/$1');
+$routes->get('/pasien/delete_pasien/(:num)', 'Pasien::delete/$1');
 
 $routes->get('/users', 'Users::index');
+$routes->add('/users/edit_user/(:any)', 'Users::edit/$1');
+$routes->add('/users/update', 'Users::update');
+$routes->get('/users/delete_user/(:any)', 'Users::delete/$1');
+
+
+
 
 
 /*

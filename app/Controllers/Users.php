@@ -7,37 +7,59 @@ use App\Models\UsersModel;
 class Users extends BaseController
 {
     protected $usersModel;
+    protected $session;
     
     public function __construct()
     {
         $this->usersModel = new UsersModel();
+        $this->session = session();
     }
 
     public function index()
     {
 
-        $users = $this->usersModel->findAll();
   
         $data = [
             'title' => 'Users',
-            'users' => $users,
-            'menu' => 'users'
+            'users' => $this->usersModel->getUsers(),
+            'menu' => 'users',
         ];
 
         return view('users/index',$data);
     }
 
-    public function get_username()
-    {
+   
 
-        $users = $this->usersModel->findAll();
-  
+    public function edit($id) {
         $data = [
-            'users' => $users,
-            'menu' => 'users'
+            'user' => $this->usersModel->getUsers($id),
+            'menu' => 'users',
+        ];
+        return view('users/edit_user', $data);
+    }
+
+    public function update()
+    {
+        $id = $this->request->getVar('kode');
+        $username = $this->request->getVar('username');
+        $email = $this->request->getVar('email');
+
+        $data = [
+            'id' => $id,
+            'username' => $username,
+            'email' => $email,
         ];
 
-        return view('layout/template',$data);
+        $this->usersModel->save($data);
+        $this->session->setFlashdata('pesan','Data Users Berhasil Diubah');
+        return redirect()->to('/users');
+    }
+
+    public function delete($id)
+    {
+        $this->usersModel->delete($id);
+        $this->session->setFlashdata('pesan','Data Users Berhasil Dihapus');
+        return redirect()->to('/users');
     }
 
 }

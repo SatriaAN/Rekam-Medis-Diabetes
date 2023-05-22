@@ -37,9 +37,9 @@
             <a class="sidebar-brand d-flex align-items-center justify-content-center"
                 href="<?php echo base_url('/') ?>">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <img src="<?= base_url('img/iconDashboard.png'); ?>" alt="" width="50/100">
+                    <img src="<?= base_url('assets/img/logoWebDiabetes.png'); ?>" alt="" width="40/100">
                 </div>
-                <div class="sidebar-brand-text mx-3">Rekam Medis Diabetes</div>
+                <div class="sidebar-brand-text ">Rekam Medis Diabetes</div>
             </a>
 
             <!-- Divider -->
@@ -125,7 +125,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Username</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
                                 <img class="img-profile rounded-circle"
                                     src="<?php echo base_url('img/undraw_profile.svg') ?>">
                             </a>
@@ -196,7 +196,6 @@
             </div>
         </div>
     </div>
-    <script src="<?= base_url('sweetalert2.all.min.js') ?>"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="<?php echo base_url('vendor/jquery/jquery.min.js'); ?>"></script>
@@ -216,6 +215,10 @@
     <script src="<?php echo base_url('js/demo/chart-area-demo.js'); ?>"></script>
     <script src="<?php echo base_url('js/demo/chart-pie-demo.js'); ?>"></script>
 
+    <!-- SweetAlert2  -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="<?= base_url('assetes/js/dist/sweetalert2.all.min.js') ?>"></script>
+    <script src="<?= base_url('assets/js/myscript.js') ?>"></script>
 </body>
 
 </html>

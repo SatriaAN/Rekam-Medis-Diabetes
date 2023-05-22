@@ -14,5 +14,6 @@ class DashboardModel extends Model
         return $this->db->table('report')
         ->join('pasien','pasien.idpasien = report.pasien_idpasien')
         ->get()->getResultArray();
+        // return $this->findAll();
     }
 }

@@ -12,7 +12,6 @@ class PasienModel extends Model
 
     public function getPasien($id = false)
     {
-
         if($id === false){
             return $this->findAll();
         } else {
