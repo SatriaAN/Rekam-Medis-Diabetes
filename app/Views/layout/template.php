@@ -44,27 +44,36 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
+            <!-- Divider -->
 
+            <?php if(in_groups('Admin')) :?>
             <li class="nav-item <?= $menu == 'users' ? 'active' : '' ?>">
                 <a class="nav-link" href="<?php echo base_url('/users'); ?>">
                     <i class="bi bi-people"></i>
                     <span>Users</span></a>
             </li>
+            <?php endif;  ?>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
+            <!-- Divider -->
 
             <!-- Nav Item - Dashboard -->
+            <?php if(has_permission('menu-dashboard')) :?>
             <li class="nav-item <?= $menu == 'dashboard' ? 'active' : '' ?>">
                 <a class="nav-link" href="<?php echo base_url('/dashboard'); ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
+            <?php endif;  ?>
+            <?php if(has_permission('menu-dashboard')) :?>
             <li class="nav-item <?= $menu == 'pasien' ? 'active' : '' ?>">
                 <a class="nav-link" href="<?php echo base_url('/pasien'); ?>">
                     <i class="bi bi-people"></i>
                     <span>Pasien</span></a>
             </li>
+            <?php endif;  ?>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -125,7 +134,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                                <span
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small"><?= user()->username  ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="<?php echo base_url('img/undraw_profile.svg') ?>">
                             </a>
@@ -212,6 +222,8 @@
     <script src="<?php echo base_url('vendor/chart.js/Chart.min.js'); ?>"></script>
 
     <!-- Page level custom scripts -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.min.js"></script>
     <script src="<?php echo base_url('js/demo/chart-area-demo.js'); ?>"></script>
     <script src="<?php echo base_url('js/demo/chart-pie-demo.js'); ?>"></script>
 
@@ -219,6 +231,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="<?= base_url('assetes/js/dist/sweetalert2.all.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/myscript.js') ?>"></script>
+
 </body>
 
 </html>

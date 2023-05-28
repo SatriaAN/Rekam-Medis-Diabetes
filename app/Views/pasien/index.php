@@ -28,7 +28,9 @@
                             <th>Umur</th>
                             <th>Jenis Kelamin</th>
                             <th>Alamat</th>
+                            <?php if(in_groups('Admin')) :?>
                             <th>Action</th>
+                            <?php endif; ?>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,6 +44,7 @@
                             <td><?= $p['umur'] ?></td>
                             <td><?= $p['jenis_kelamin'] ?></td>
                             <td><?= $p['alamat'] ?></td>
+                            <?php if(in_groups('Admin')) :?>
                             <td>
                                 <a class="btn btn-sm btn-warning"
                                     href="<?= base_url('pasien/edit_pasien/' . $p['idpasien']);?>">Edit</a>
@@ -49,6 +52,7 @@
                                 <a class="btn btn-sm btn-danger tombolDelete"
                                     href="<?= base_url('pasien/delete_pasien/' . $p['idpasien']);?>">Hapus</a>
                             </td>
+                            <?php endif; ?>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

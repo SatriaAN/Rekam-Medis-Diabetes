@@ -19,16 +19,18 @@
                             <th>No</th>
                             <th>Email</th>
                             <th>Username</th>
+                            <th>Role</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $no = 1; ?>
-                        <?php foreach($users as $user) : ?>
+                        <?php foreach($role as $user) : ?>
                         <tr>
                             <td><?= $no++ ?></td>
                             <td><?= $user['email'] ?></td>
                             <td><?= $user['username'] ?></td>
+                            <td><?= $user['group_name'] ?></td>
                             <td>
                                 <a class="btn btn-sm btn-warning"
                                     href="<?= base_url('users/edit_user/' . $user['id']);?>">Edit</a>

@@ -40,11 +40,11 @@ $routes->get('/pasien', 'Pasien::index');
 $routes->get('/pasien/tambah-pasien', 'Pasien::create');
 $routes->post('/pasien/simpandata', 'Pasien::simpandata');
 $routes->post('/pasien/save', 'Pasien::save');
-$routes->add('/pasien/edit_pasien/(:any)', 'Pasien::edit/$1');
-$routes->add('/pasien/update', 'Pasien::update');
-$routes->get('/pasien/delete_pasien/(:num)', 'Pasien::delete/$1');
+$routes->add('/pasien/edit_pasien/(:any)', 'Pasien::edit/$1', ['filter' => 'role:Admin']);
+$routes->add('/pasien/update', 'Pasien::update', ['filter' => 'role:Admin']);
+$routes->get('/pasien/delete_pasien/(:num)', 'Pasien::delete/$1', ['filter' => 'role:Admin']);
 
-$routes->get('/users', 'Users::index');
+$routes->get('/users', 'Users::index' , ['filter' => 'role:Admin']);
 $routes->add('/users/edit_user/(:any)', 'Users::edit/$1');
 $routes->add('/users/update', 'Users::update');
 $routes->get('/users/delete_user/(:any)', 'Users::delete/$1');

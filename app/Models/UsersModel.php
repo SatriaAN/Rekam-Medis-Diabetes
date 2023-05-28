@@ -13,7 +13,10 @@ class UsersModel extends Model
     {
 
         if($id === false){
-            return $this->findAll();
+            return $this->select('users.id ,username, email, gs.group_id, g.name group_name')
+        ->join('auth_groups_users gs', 'users.id = gs.user_id')
+        ->join('auth_groups g', ' g.id = gs.group_id')
+        ->findAll();
         } else {
             return $this->where(['id' => $id])->first(); 
         }
@@ -23,5 +26,12 @@ class UsersModel extends Model
     {
         $db = db_connect();
         $db->query('SELECT username FROM users WHERE id = $id');
+    }
+
+    public function getRole() {
+        return $this->select('users.id ,username, email, gs.group_id, g.name group_name')
+        ->join('auth_groups_users gs', 'users.id = gs.user_id')
+        ->join('auth_groups g', ' g.id = gs.group_id')
+        ->findAll();
     }
 }

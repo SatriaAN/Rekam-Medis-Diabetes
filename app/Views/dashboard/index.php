@@ -52,7 +52,9 @@
                                     <th>Gula Darah Puasa</th>
                                     <th>Gula Darah Sewaktu</th>
                                     <th>Tanggal</th>
+                                    <?php if(in_groups('Admin')) :?>
                                     <th>Action</th>
+                                    <?php endif; ?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -64,6 +66,7 @@
                                     <td><?= $d['gula_darah_puasa']; ?></td>
                                     <td><?= $d['gula_darah_sewaktu']; ?></td>
                                     <td><?= $d['tanggal']; ?></td>
+                                    <?php if(in_groups('Admin')) :?>
                                     <td>
                                         <a class="btn btn-sm btn-warning"
                                             href="<?= base_url('dashboard/edit/' . $d['idreport']);?>">Edit</a>
@@ -71,6 +74,7 @@
                                         <a class="btn btn-sm btn-danger tombolDelete"
                                             href="<?= base_url('dashboard/delete/' . $d['idreport']);?>">Hapus</a>
                                     </td>
+                                    <?php endif; ?>
                                 </tr>
                                 <?php endforeach;?>
                             </tbody>
@@ -82,4 +86,9 @@
         </div>
     </div>
 </div>
+<script>
+$.ajax({
+    url: "<?= base_url() ?>"
+})
+</script>
 <?php $this->endSection(); ?>

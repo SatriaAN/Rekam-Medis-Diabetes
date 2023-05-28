@@ -92,21 +92,22 @@
                         <div class="service-item position-relative">
                             <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
                             <h4><a href="" class="stretched-link">Lengkap</a></h4>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                            <p>Fitur-fitur yang dapat digunakan untuk merekap hasil pemeriksaan rekam medis diabetes</p>
                         </div>
                     </div><!-- End Service Item -->
                     <div class=" d-flex" data-aos="zoom-out" data-aos-delay="400">
                         <div class="service-item position-relative">
                             <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
                             <h4><a href="" class="stretched-link">Mudah</a></h4>
-                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+                            <p>Mudah digunakan oleh semua orang tanpa harus download aplikasi lagi</p>
                         </div>
                     </div><!-- End Service Item -->
                     <div class=" d-flex" data-aos="zoom-out" data-aos-delay="600">
                         <div class="service-item position-relative">
                             <div class="icon"><i class="bi bi-broadcast icon"></i></div>
                             <h4><a href="" class="stretched-link">Terjangkau</a></h4>
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+                            <p>Hanya dengan akses internet dan browser sudah dapat menggunakan website Rekam Medis
+                                Diabetes</p>
                         </div>
                     </div><!-- End Service Item -->
                 </div>
@@ -126,7 +127,7 @@
 
                 <div class="d-flex flex-column align-items-center align-items-lg-start">
                     <div class="copyright">
-                        &copy; Designed By <strong><span>:3</span></span></strong>
+                        &copy; Designed By <strong><span>NF Team</span></span></strong>
                     </div>
                     <div class="credits">
                         <!-- All the links in the footer should remain intact. -->
@@ -139,7 +140,8 @@
 
                 <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
                     <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/in/satria-ardhya-naufal/" class="linkedin"><i
+                            class="bi bi-linkedin"></i></a>
                 </div>
 
             </div>

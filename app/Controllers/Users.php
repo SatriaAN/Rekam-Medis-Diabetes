@@ -18,17 +18,17 @@ class Users extends BaseController
     public function index()
     {
 
-  
+        $role = $this->usersModel->getUsers();
         $data = [
             'title' => 'Users',
             'users' => $this->usersModel->getUsers(),
+            'role' => $this->usersModel->getRole(),
             'menu' => 'users',
         ];
+        dd($role);
 
         return view('users/index',$data);
     }
-
-   
 
     public function edit($id) {
         $data = [
@@ -62,4 +62,5 @@ class Users extends BaseController
         return redirect()->to('/users');
     }
 
+ 
 }
