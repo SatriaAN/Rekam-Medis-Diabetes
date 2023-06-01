@@ -35,12 +35,12 @@
         </div>
         <div class="mb-3">
             <label class="form-label" for="umur">Umur</label>
-            <input class="form-control" name="umur" id="umur" type="text" placeholder="Umur"
+            <input class="form-control" name="umur" id="umur" type="number" placeholder="Umur"
                 value="<?= old('umur'); ?>" />
         </div>
         <div class="mb-3">
             <label class="form-label" for="nomorHandphone">Nomor Handphone</label>
-            <input class="form-control" name="nomorHp" id="nomorHandphone" type="text" placeholder="Nomor Handphone"
+            <input class="form-control" name="nomorHp" id="nomorHandphone" type="number" placeholder="Nomor Handphone"
                 value="<?= old('nomorHp'); ?>" />
         </div>
         <div class="mb-3">

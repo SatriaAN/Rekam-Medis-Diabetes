@@ -20,7 +20,7 @@
                             <th>Email</th>
                             <th>Username</th>
                             <th>Role</th>
-                            <th>Aksi</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>

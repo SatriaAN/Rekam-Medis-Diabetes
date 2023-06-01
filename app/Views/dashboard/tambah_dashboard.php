@@ -39,6 +39,16 @@
                 value="<?= old('gulaDarahSewaktu'); ?>" />
         </div>
         <div class=" mb-3">
+            <label class="form-label" for="sistolik">Tekanan Darah Sistolik</label>
+            <input class="form-control" name="sistolik" type="number" placeholder="Sistolik"
+                value="<?= old('sistolik'); ?>" />
+        </div>
+        <div class=" mb-3">
+            <label class="form-label" for="diastolik">Tekanan Darah Diastolik</label>
+            <input class="form-control" name="diastolik" type="number" placeholder="Diastolik"
+                value="<?= old('diastolik'); ?>" />
+        </div>
+        <div class=" mb-3">
             <label class="form-label" for="tanggal">Tanggal</label>
             <input class="form-control" name="tanggal" type="date" data-sb-validations="required" />
 

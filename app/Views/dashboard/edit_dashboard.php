@@ -15,7 +15,8 @@
     </div>
     <?php endif; ?>
 
-    <form action="<?= base_url('dashboard/store'); ?>" data-sb-form-api-token="API_TOKEN">
+    <form action="<?= base_url('dashboard/update'); ?>" data-sb-form-api-token="API_TOKEN">
+        <input type="hidden" name="kode" value="<?= $dashboard['idreport']; ?>">
         <div class="form-label mb-3">
             <label for="namaPasien">Nama Pasien</label>
             <select class="form-select" name="nama" aria-label="Nama Pasien">
@@ -33,6 +34,16 @@
             <label class="form-label" for="gulaDarahSewaktu">Gula Darah Sewaktu</label>
             <input class="form-control" name="gulaDarahSewaktu" type="number" placeholder="Gula Darah Sewaktu"
                 value="<?= $dashboard['gula_darah_sewaktu']; ?>" />
+        </div>
+        <div class=" mb-3">
+            <label class="form-label" for="sistolik">Tekanan Darah (sistolik)</label>
+            <input class="form-control" name="sistolik" type="number" placeholder="Gula Darah Sewaktu"
+                value="<?= $dashboard['sistolik']; ?>" />
+        </div>
+        <div class=" mb-3">
+            <label class="form-label" for="diastolik">Tekanan Darah (diastolik)</label>
+            <input class="form-control" name="diastolik" type="number" placeholder="Gula Darah Sewaktu"
+                value="<?= $dashboard['diastolik']; ?>" />
         </div>
         <div class=" mb-3">
             <label class="form-label" for="tanggal">Tanggal</label>

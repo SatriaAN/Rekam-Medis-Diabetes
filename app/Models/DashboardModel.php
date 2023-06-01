@@ -6,9 +6,9 @@ use CodeIgniter\Model;
 
 class DashboardModel extends Model
 {
-    protected $table = ['report'];
+    protected $table = 'report';
     protected $primaryKey = 'idreport';
-    protected $allowedFields = ['gula_darah_puasa','gula_darah_sewaktu','tanggal','pasien_idpasien'];
+    protected $allowedFields = ['gula_darah_puasa','gula_darah_sewaktu','sistolik','diastolik','tanggal','pasien_idpasien'];
     
     public function get_report()
     {
@@ -44,7 +44,13 @@ class DashboardModel extends Model
         ->get()->getResultArray();
     }
 
-  
-
+    public function getReport($tahun)
+    {
+        return $this->db->table('report')
+        ->select("MONTH(report.tanggal) bulan, report.gula_darah_puasa gulaDarahPuasa, report.gula_darah_sewaktu gulaDarahSewaktu, report.sistolik dataSistolik, report.diastolik dataDiastolik")
+        ->where('YEAR(report.tanggal) ',$tahun)
+        ->orderBy('MONTH(report.tanggal)')
+        ->get()->getResultArray();
+    }
 
 }

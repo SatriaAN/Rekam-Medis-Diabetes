@@ -21,13 +21,7 @@ class UsersModel extends Model
             return $this->where(['id' => $id])->first(); 
         }
     }
-
-    public function getUsername($id)
-    {
-        $db = db_connect();
-        $db->query('SELECT username FROM users WHERE id = $id');
-    }
-
+    
     public function getRole() {
         return $this->select('users.id ,username, email, gs.group_id, g.name group_name')
         ->join('auth_groups_users gs', 'users.id = gs.user_id')

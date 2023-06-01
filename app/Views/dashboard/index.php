@@ -15,17 +15,80 @@
     <div class="row">
         <!-- Area Chart -->
         <div class="col-xl col-lg">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Chart Penderita Penyakit Diabetes</h6>
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Chart Gula Darah Puasa</h6>
+                            <input class="form-control" onchange="getReport();" type="number" value="<?= date('Y') ?>"
+                                id="tahun_gulaDarahPuasa">
+                        </div>
+
+
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="chart-area">
+                                <canvas id="chartReport2"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div class="col-xl-6">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-success">Chart Gula Darah Sewaktu</h6>
+                            <input class="form-control" onchange="getReport2();" type="number" value="<?= date('Y') ?>"
+                                id="tahun_gulaDarahSewaktu">
+                        </div>
 
 
-                <!-- Card Body -->
-                <div class="card-body">
-                    <div class="chart-area">
-                        <canvas id="myAreaChart"></canvas>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="chart-area">
+                                <canvas id="chartReport"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-info">Chart Tekanan Darah (sistolik)</h6>
+                            <input class="form-control" onchange="getSistolik();" type="number" value="<?= date('Y') ?>"
+                                id="tahun_chartSistolik">
+                        </div>
+
+
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="chart-area">
+                                <canvas id="chartSistolik"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-warning">Chart Tekanan Darah (diastolik)</h6>
+                            <input class="form-control" onchange="getDiastolik();" type="number"
+                                value="<?= date('Y') ?>" id="tahun_chartDiastolik">
+                        </div>
+
+
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="chart-area">
+                                <canvas id="chartDiastolik"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -51,10 +114,10 @@
                                     <th>Pasien</th>
                                     <th>Gula Darah Puasa</th>
                                     <th>Gula Darah Sewaktu</th>
+                                    <th>Tekanan Darah (sistolik)</th>
+                                    <th>Tekanan Darah (diastolik)</th>
                                     <th>Tanggal</th>
-                                    <?php if(in_groups('Admin')) :?>
                                     <th>Action</th>
-                                    <?php endif; ?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,8 +128,9 @@
                                     <td><?= $d['nama'] ?></td>
                                     <td><?= $d['gula_darah_puasa']; ?></td>
                                     <td><?= $d['gula_darah_sewaktu']; ?></td>
+                                    <td><?= $d['sistolik']; ?></td>
+                                    <td><?= $d['diastolik']; ?></td>
                                     <td><?= $d['tanggal']; ?></td>
-                                    <?php if(in_groups('Admin')) :?>
                                     <td>
                                         <a class="btn btn-sm btn-warning"
                                             href="<?= base_url('dashboard/edit/' . $d['idreport']);?>">Edit</a>
@@ -74,7 +138,6 @@
                                         <a class="btn btn-sm btn-danger tombolDelete"
                                             href="<?= base_url('dashboard/delete/' . $d['idreport']);?>">Hapus</a>
                                     </td>
-                                    <?php endif; ?>
                                 </tr>
                                 <?php endforeach;?>
                             </tbody>
@@ -86,9 +149,6 @@
         </div>
     </div>
 </div>
-<script>
-$.ajax({
-    url: "<?= base_url() ?>"
-})
-</script>
+
+
 <?php $this->endSection(); ?>

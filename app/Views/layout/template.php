@@ -142,11 +142,6 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="<?php echo base_url('profile') ?>">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?= base_url('logout') ?>" data-toggle="modal"
                                     data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -231,6 +226,527 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="<?= base_url('assetes/js/dist/sweetalert2.all.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/myscript.js') ?>"></script>
+    <script>
+    $(document).ready(function() {
+        getReport();
+        getReport2();
+        getSistolik();
+        getDiastolik();
+    });
+
+    function chartReport(dataset) {
+
+        // Area Chart Example   var thresholdValue = 100;
+        var thresholdValue = 100;
+        var ctx = document.getElementById("chartReport2");
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September",
+                    "Oktober", "November", "Desember"
+                ],
+                datasets: [{
+                    label: "Gula Darah Puasa",
+                    lineTension: 0.3,
+                    backgroundColor: "rgba(78, 115, 223, 0.05)",
+                    borderColor: function(context) {
+                        var value = context.dataset.data[context.dataIndex];
+                        if (value > thresholdValue) {
+                            return "rgba(210, 4, 45, 1)"; // warna merah jika nilai melewati threshold
+                        } else {
+                            return "rgba(78, 115, 223, 1)"; // warna biru jika nilai tidak melewati threshold
+                        }
+                    },
+                    pointRadius: 3,
+                    pointBackgroundColor: "rgba(78, 115, 223, 1)",
+                    pointBorderColor: "rgba(78, 115, 223, 1)",
+                    pointHoverRadius: 3,
+                    pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+                    pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+                    pointHitRadius: 10,
+                    pointBorderWidth: 2,
+                    data: dataset,
+                    spanGaps: true
+                }, {
+                    label: "Threshold",
+                    type: 'line',
+                    data: [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+                        100
+                    ], // Set nilai threshold untuk setiap bulan
+                    borderColor: "rgba(210, 4, 45, 1)", // Set warna garis menjadi merah
+                    borderWidth: 2, // Set lebar garis
+                    fill: false, // Set menjadi false agar tidak mengisi area di bawah garis
+                    pointRadius: 0, // Set radius titik menjadi 0 agar titik tidak terlihat
+                }],
+            },
+
+            options: {
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 10,
+                        right: 25,
+                        top: 25,
+                        bottom: 0
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        time: {
+                            unit: 'date'
+                        },
+                        gridLines: {
+                            display: false,
+                            drawBorder: false
+                        },
+                        ticks: {
+                            maxTicksLimit: 7
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            maxTicksLimit: 5,
+                            padding: 10,
+                            // Include a dollar sign in the ticks
+                            callback: function(value, index, values) {
+                                if (value === 100) {
+                                    return value;
+                                } else {
+                                    return number_format(value);
+                                }
+                            }
+                        },
+                        gridLines: {
+                            color: "rgb(234, 236, 244)",
+                            zeroLineColor: "rgb(234, 236, 244)",
+                            drawBorder: false,
+                            borderDash: [2],
+                            zeroLineBorderDash: [2]
+                        }
+                    }],
+                },
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    backgroundColor: "rgb(255,255,255)",
+                    bodyFontColor: "#858796",
+                    titleMarginBottom: 10,
+                    titleFontColor: '#6e707e',
+                    titleFontSize: 14,
+                    borderColor: '#dddfeb',
+                    borderWidth: 1,
+                    xPadding: 15,
+                    yPadding: 15,
+                    displayColors: false,
+                    intersect: false,
+                    mode: 'index',
+                    caretPadding: 10,
+                    callbacks: {
+                        label: function(tooltipItem, chart) {
+                            var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+                            return datasetLabel + ' ' + number_format(tooltipItem.yLabel);
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function chartReport2(dataset) {
+
+        // Area Chart Example
+        var ctx = document.getElementById("chartReport");
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September",
+                    "Oktober", "November", "Desember"
+                ],
+                datasets: [{
+                    label: "Gula Darah Sewaktu",
+                    lineTension: 0.3,
+                    backgroundColor: "rgba(144, 238, 144, 0.05)",
+                    borderColor: "rgba(144, 238, 144, 1)",
+                    pointRadius: 3,
+                    pointBackgroundColor: "rgba(144, 238, 144, 1)",
+                    pointBorderColor: "rgba(144, 238, 144, 1)",
+                    pointHoverRadius: 3,
+                    pointHoverBackgroundColor: "rgba(144, 238, 144, 1)",
+                    pointHoverBorderColor: "rgba(144, 238, 144, 1)",
+                    pointHitRadius: 10,
+                    pointBorderWidth: 2,
+                    data: dataset,
+                }, {
+                    label: "Threshold",
+                    type: 'line',
+                    data: [140, 140, 140, 140, 140, 140, 140, 140, 140, 140, 140,
+                        140
+                    ], // Set nilai threshold untuk setiap bulan
+                    borderColor: "rgba(210, 4, 45, 1)", // Set warna garis menjadi merah
+                    borderWidth: 2, // Set lebar garis
+                    fill: false, // Set menjadi false agar tidak mengisi area di bawah garis
+                    pointRadius: 0, // Set radius titik menjadi 0 agar titik tidak terlihat
+                }],
+            },
+            options: {
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 10,
+                        right: 25,
+                        top: 25,
+                        bottom: 0
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        time: {
+                            unit: 'date'
+                        },
+                        gridLines: {
+                            display: false,
+                            drawBorder: false
+                        },
+                        ticks: {
+                            maxTicksLimit: 7
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            maxTicksLimit: 5,
+                            padding: 10,
+                            // Include a dollar sign in the ticks
+                            callback: function(value, index, values) {
+                                return number_format(value);
+                            }
+                        },
+                        gridLines: {
+                            color: "rgb(234, 236, 244)",
+                            zeroLineColor: "rgb(234, 236, 244)",
+                            drawBorder: false,
+                            borderDash: [2],
+                            zeroLineBorderDash: [2]
+                        }
+                    }],
+                },
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    backgroundColor: "rgb(255,255,255)",
+                    bodyFontColor: "#858796",
+                    titleMarginBottom: 10,
+                    titleFontColor: '#6e707e',
+                    titleFontSize: 14,
+                    borderColor: '#dddfeb',
+                    borderWidth: 1,
+                    xPadding: 15,
+                    yPadding: 15,
+                    displayColors: false,
+                    intersect: false,
+                    mode: 'index',
+                    caretPadding: 10,
+                    callbacks: {
+                        label: function(tooltipItem, chart) {
+                            var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+                            return datasetLabel + ' ' + number_format(tooltipItem.yLabel);
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function chartSistolik(dataset) {
+
+        // Area Chart Example
+        var ctx = document.getElementById("chartSistolik");
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September",
+                    "Oktober", "November", "Desember"
+                ],
+                datasets: [{
+                    label: "Tekanan Darah Sistolik",
+                    lineTension: 0.3,
+                    backgroundColor: "rgba(135, 206, 250, 0)",
+                    borderColor: "rgba(135, 206, 250, 1)",
+                    pointRadius: 3,
+                    pointBackgroundColor: "rgba(135, 206, 250, 1)",
+                    pointBorderColor: "rgba(135, 206, 250, 1)",
+                    pointHoverRadius: 3,
+                    pointHoverBackgroundColor: "rgba(135, 206, 250, 1)",
+                    pointHoverBorderColor: "rgba(135, 206, 250, 1)",
+                    pointHitRadius: 10,
+                    pointBorderWidth: 2,
+                    data: dataset,
+                }, {
+                    label: "Threshold",
+                    type: 'line',
+                    data: [120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120,
+                        120
+                    ], // Set nilai threshold untuk setiap bulan
+                    borderColor: "rgba(210, 4, 45, 1)", // Set warna garis menjadi merah
+                    borderWidth: 2, // Set lebar garis
+                    fill: false, // Set menjadi false agar tidak mengisi area di bawah garis
+                    pointRadius: 0, // Set radius titik menjadi 0 agar titik tidak terlihat
+                }],
+            },
+            options: {
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 10,
+                        right: 25,
+                        top: 25,
+                        bottom: 0
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        time: {
+                            unit: 'date'
+                        },
+                        gridLines: {
+                            display: false,
+                            drawBorder: false
+                        },
+                        ticks: {
+                            maxTicksLimit: 7
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            maxTicksLimit: 5,
+                            padding: 10,
+                            // Include a dollar sign in the ticks
+                            callback: function(value, index, values) {
+                                return number_format(value);
+                            }
+                        },
+                        gridLines: {
+                            color: "rgb(234, 236, 244)",
+                            zeroLineColor: "rgb(234, 236, 244)",
+                            drawBorder: false,
+                            borderDash: [2],
+                            zeroLineBorderDash: [2]
+                        }
+                    }],
+                },
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    backgroundColor: "rgb(255,255,255)",
+                    bodyFontColor: "#858796",
+                    titleMarginBottom: 10,
+                    titleFontColor: '#6e707e',
+                    titleFontSize: 14,
+                    borderColor: '#dddfeb',
+                    borderWidth: 1,
+                    xPadding: 15,
+                    yPadding: 15,
+                    displayColors: false,
+                    intersect: false,
+                    mode: 'index',
+                    caretPadding: 10,
+                    callbacks: {
+                        label: function(tooltipItem, chart) {
+                            var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+                            return datasetLabel + ' ' + number_format(tooltipItem.yLabel);
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function chartDiastolik(dataset) {
+
+        // Area Chart Example
+        var ctx = document.getElementById("chartDiastolik");
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September",
+                    "Oktober", "November", "Desember"
+                ],
+                datasets: [{
+                    label: "Tekanan Darah Diastolik",
+                    lineTension: 0.3,
+                    backgroundColor: "rgba(144, 238, 144, 0.05)",
+                    borderColor: "rgb(255, 193, 7)",
+                    pointRadius: 3,
+                    pointBackgroundColor: "rgb(255, 193, 7)",
+                    pointBorderColor: "rgb(255, 193, 7)",
+                    pointHoverRadius: 3,
+                    pointHoverBackgroundColor: "rgb(255, 193, 7)",
+                    pointHoverBorderColor: "rgb(255, 193, 7)",
+                    pointHitRadius: 10,
+                    pointBorderWidth: 2,
+                    data: dataset,
+                }, {
+                    label: "Threshold",
+                    type: 'line',
+                    data: [80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80,
+                        80
+                    ], // Set nilai threshold untuk setiap bulan
+                    borderColor: "rgba(210, 4, 45, 1)", // Set warna garis menjadi merah
+                    borderWidth: 2, // Set lebar garis
+                    fill: false, // Set menjadi false agar tidak mengisi area di bawah garis
+                    pointRadius: 0, // Set radius titik menjadi 0 agar titik tidak terlihat
+                }],
+            },
+            options: {
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 10,
+                        right: 25,
+                        top: 25,
+                        bottom: 0
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        time: {
+                            unit: 'date'
+                        },
+                        gridLines: {
+                            display: false,
+                            drawBorder: false
+                        },
+                        ticks: {
+                            maxTicksLimit: 7
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            maxTicksLimit: 5,
+                            padding: 10,
+                            // Include a dollar sign in the ticks
+                            callback: function(value, index, values) {
+                                return number_format(value);
+                            }
+                        },
+                        gridLines: {
+                            color: "rgb(234, 236, 244)",
+                            zeroLineColor: "rgb(234, 236, 244)",
+                            drawBorder: false,
+                            borderDash: [2],
+                            zeroLineBorderDash: [2]
+                        }
+                    }],
+                },
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    backgroundColor: "rgb(255,255,255)",
+                    bodyFontColor: "#858796",
+                    titleMarginBottom: 10,
+                    titleFontColor: '#6e707e',
+                    titleFontSize: 14,
+                    borderColor: '#dddfeb',
+                    borderWidth: 1,
+                    xPadding: 15,
+                    yPadding: 15,
+                    displayColors: false,
+                    intersect: false,
+                    mode: 'index',
+                    caretPadding: 10,
+                    callbacks: {
+                        label: function(tooltipItem, chart) {
+                            var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+                            return datasetLabel + ' ' + number_format(tooltipItem.yLabel);
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // Fungsi untuk mengakses data report
+    function getReport() {
+        var tahun = $('#tahun_gulaDarahPuasa').val();
+        $.ajax({
+            url: "/chart-report",
+            method: "post",
+            data: {
+                tahun: tahun
+            },
+            success: function(response) {
+                var result = JSON.parse(response)
+                var dataset = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                $.each(result.data, function(i, item) {
+                    dataset[item.bulan - 1] = item.gulaDarahPuasa
+                });
+                chartReport(dataset);
+            }
+        });
+    }
+
+    function getReport2() {
+        var tahun = $('#tahun_gulaDarahSewaktu').val();
+        $.ajax({
+            url: "/chart-report",
+            method: "post",
+            data: {
+                tahun: tahun
+            },
+            success: function(response) {
+                var result = JSON.parse(response)
+                var dataset = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                $.each(result.data, function(i, item) {
+                    dataset[item.bulan - 1] = item.gulaDarahSewaktu
+                });
+                chartReport2(dataset);
+            }
+        });
+    }
+
+    // chart tekanan darah 
+
+    function getSistolik() {
+        var tahun = $('#tahun_chartSistolik').val();
+        $.ajax({
+            url: "/chart-report",
+            method: "post",
+            data: {
+                tahun: tahun
+            },
+            success: function(response) {
+                var result = JSON.parse(response)
+                var dataset = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                $.each(result.data, function(i, item) {
+                    dataset[item.bulan - 1] = item.dataSistolik
+                });
+                chartSistolik(dataset);
+            }
+        });
+    }
+
+    function getDiastolik() {
+        var tahun = $('#tahun_chartDiastolik').val();
+        $.ajax({
+            url: "/chart-report",
+            method: "post",
+            data: {
+                tahun: tahun
+            },
+            success: function(response) {
+                var result = JSON.parse(response)
+                var dataset = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                $.each(result.data, function(i, item) {
+                    dataset[item.bulan - 1] = item.dataDiastolik
+                });
+                chartDiastolik(dataset);
+            }
+        });
+    }
+    </script>
 
 </body>
 

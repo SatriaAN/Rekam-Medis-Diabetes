@@ -44,6 +44,8 @@ class Dashboard extends BaseController
         $nama = $this->request->getVar('nama');
         $gulaDarahPuasa = $this->request->getVar('gulaDarahPuasa');
         $gulaDarahSewaktu = $this->request->getVar('gulaDarahSewaktu');
+        $sistolik = $this->request->getVar('sistolik');
+        $diastolik = $this->request->getVar('diastolik');
         $tanggal = $this->request->getVar('tanggal');
         
         // $rules = [
@@ -67,14 +69,29 @@ class Dashboard extends BaseController
             'gulaDarahPuasa' => [
                 'rules' => 'required|max_length[4]',
                 'errors' => [
-                    'required' => '{field} Harus diisi',
+                    'required' => 'Gula Darah Puasa Harus diisi',
                     'max_length' => 'Maksimal 4 angka'
                 ]
             ],
             'gulaDarahSewaktu' => [
-                'rules' => 'required',
+                'rules' => 'required|max_length[4]',
                 'errors' => [
-                    'required' => '{field} Harus diisi'
+                    'required' => 'Gula Darah Sewaktu Harus diisi',
+                    'max_length' => 'Maksimal 4 angka'
+                ]
+            ],
+            'sistolik' => [
+                'rules' => 'required|max_length[3]',
+                'errors' => [
+                    'required' => 'Tekanan Darah Sistolik Harus diisi',
+                    'max_length' => 'Maksimal 3 angka'
+                ]
+            ],
+            'diastolik' => [
+                'rules' => 'required|max_length[3]',
+                'errors' => [
+                    'required' => 'Gula Darah Sewaktu Harus diisi',
+                    'max_length' => 'Maksimal 3 angka'
                 ]
             ],
         ])) {
@@ -88,8 +105,9 @@ class Dashboard extends BaseController
             'pasien_idpasien' => $nama,
             'gula_darah_puasa' => $gulaDarahPuasa,
             'gula_darah_sewaktu' => $gulaDarahSewaktu,
+            'sistolik' => $sistolik,
+            'diastolik' => $diastolik,
             'tanggal' => $tanggal,
-            // 'pasien' => $this->dashboardModel->allPasien()
         ];
         $this->dashboardModel->save($data);
         $this->session->setFlashdata('pesan','Data Diabetes Pasien Berhasil Ditambahkan');
@@ -107,17 +125,22 @@ class Dashboard extends BaseController
 
     public function update()
     {
+        $id = $this->request->getVar('kode');
         $nama = $this->request->getVar('nama');
         $gulaDarahPuasa = $this->request->getVar('gulaDarahPuasa');
         $gulaDarahSewaktu = $this->request->getVar('gulaDarahSewaktu');
         $tanggal = $this->request->getVar('tanggal');
+        $sistolik = $this->request->getVar('sistolik');
+        $diastolik = $this->request->getVar('diastolik');
 
         $data = [
+            'idreport' => $id,
             'pasien_idpasien' => $nama,
             'gula_darah_puasa' => $gulaDarahPuasa,
             'gula_darah_sewaktu' => $gulaDarahSewaktu,
             'tanggal' => $tanggal,
-            // 'pasien' => $this->dashboardModel->allPasien()
+            'sistolik' => $sistolik,
+            'diastolik' => $diastolik
         ];
 
         $this->dashboardModel->save($data);
@@ -130,6 +153,20 @@ class Dashboard extends BaseController
         $this->dashboardModel->delete($id);
         $this->session->setFlashdata('pesan','Data Pasien Berhasil Dihapus');
         return redirect()->to('/dashboard');
+    }
+
+    public function showChartReport()
+    {
+        $tahun = $this->request->getVar('tahun');
+        $data_report =  $this->dashboardModel->getReport($tahun);
+        // dd($data_report);
+
+        $response = [
+            'status' => true,
+            'data' => $data_report
+        ]; 
+
+        echo json_encode($response);
     }
 
 

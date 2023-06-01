@@ -22,13 +22,13 @@
         </div>
         <div class="mb-3">
             <label class="form-label" for="umur">Umur</label>
-            <input class="form-control" name="umur" id="umur" type="text" value="<?= $pasien['umur'] ?>"
+            <input class="form-control" name="umur" id="umur" type="number" value="<?= $pasien['umur'] ?>"
                 data-sb-validations="required" />
             <div class="invalid-feedback" data-sb-feedback="umur:required">Umur is required.</div>
         </div>
         <div class="mb-3">
             <label class="form-label" for="nomorHandphone">Nomor Handphone</label>
-            <input class="form-control" name="nomorHp" id="nomorHandphone" type="text" value="<?= $pasien['no_hp'] ?>"
+            <input class="form-control" name="nomorHp" id="nomorHandphone" type="number" value="<?= $pasien['no_hp'] ?>"
                 data-sb-validations="required" />
             <div class="invalid-feedback" data-sb-feedback="nomorHandphone:required">Nomor Handphone is required.</div>
         </div>
