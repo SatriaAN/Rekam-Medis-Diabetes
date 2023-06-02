@@ -39,6 +39,16 @@
                 value="<?= old('umur'); ?>" />
         </div>
         <div class="mb-3">
+            <label class="form-label" for="berat_badan">Berat Badan</label>
+            <input class="form-control" name="beratBadan" id="berat_badan" type="number" placeholder="Berat Badan"
+                value="<?= old('beratBadan'); ?>" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="tinggi_badan">Tinggi Badan</label>
+            <input class="form-control" name="tinggiBadan" id="tinggiBadan" type="number" placeholder="Tinggi Badan"
+                value="<?= old('tinggiBadan'); ?>" />
+        </div>
+        <div class="mb-3">
             <label class="form-label" for="nomorHandphone">Nomor Handphone</label>
             <input class="form-control" name="nomorHp" id="nomorHandphone" type="number" placeholder="Nomor Handphone"
                 value="<?= old('nomorHp'); ?>" />

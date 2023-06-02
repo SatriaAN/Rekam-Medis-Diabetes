@@ -3,13 +3,13 @@
 <?= $this->section('content'); ?>
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Pasien</h1>
+        <h1 class="h3 mb-0 text-gray-800">Users</h1>
     </div>
     <div class="flash-data" data-flashdata="<?= session()->getFlashdata('pesan') ?>"></div>
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Pasien</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Users</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -20,6 +20,7 @@
                             <th>Email</th>
                             <th>Username</th>
                             <th>Role</th>
+                            <th>ID Telegram</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -31,6 +32,7 @@
                             <td><?= $user['email'] ?></td>
                             <td><?= $user['username'] ?></td>
                             <td><?= $user['group_name'] ?></td>
+                            <td><?= $user['telegram_id'] ?></td>
                             <td>
                                 <a class="btn btn-sm btn-warning"
                                     href="<?= base_url('users/edit_user/' . $user['id']);?>">Edit</a>

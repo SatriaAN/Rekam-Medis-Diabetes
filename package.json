@@ -2,6 +2,7 @@
   "dependencies": {
     "bootstrap-icons": "^1.10.3",
     "chart.js": "^4.3.0",
+    "justgage": "^1.6.1",
     "sweetalert2": "^11.7.5"
   }
 }

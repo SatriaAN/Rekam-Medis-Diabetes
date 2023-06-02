@@ -25,7 +25,6 @@ class Users extends BaseController
             'role' => $this->usersModel->getRole(),
             'menu' => 'users',
         ];
-        dd($role);
 
         return view('users/index',$data);
     }

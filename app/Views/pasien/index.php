@@ -26,11 +26,11 @@
                             <th>E-mail</th>
                             <th>Nomor Hp</th>
                             <th>Umur</th>
+                            <th>Berat Badan</th>
+                            <th>Tinggi Badan</th>
                             <th>Jenis Kelamin</th>
                             <th>Alamat</th>
-                            <?php if(in_groups('Admin')) :?>
                             <th>Action</th>
-                            <?php endif; ?>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,9 +42,10 @@
                             <td><?= $p['email'] ?></td>
                             <td><?= $p['no_hp'] ?></td>
                             <td><?= $p['umur'] ?></td>
+                            <td><?= $p['berat_badan'] ?></td>
+                            <td><?= $p['tinggi_badan'] ?></td>
                             <td><?= $p['jenis_kelamin'] ?></td>
                             <td><?= $p['alamat'] ?></td>
-                            <?php if(in_groups('Admin')) :?>
                             <td>
                                 <a class="btn btn-sm btn-warning"
                                     href="<?= base_url('pasien/edit_pasien/' . $p['idpasien']);?>">Edit</a>
@@ -52,7 +53,6 @@
                                 <a class="btn btn-sm btn-danger tombolDelete"
                                     href="<?= base_url('pasien/delete_pasien/' . $p['idpasien']);?>">Hapus</a>
                             </td>
-                            <?php endif; ?>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

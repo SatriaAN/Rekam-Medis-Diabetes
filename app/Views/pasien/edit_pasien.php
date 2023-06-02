@@ -27,6 +27,16 @@
             <div class="invalid-feedback" data-sb-feedback="umur:required">Umur is required.</div>
         </div>
         <div class="mb-3">
+            <label class="form-label" for="berat_badan">Berat Badan</label>
+            <input class="form-control" name="berat_badan" id="berat_badan" type="number" placeholder="Berat Badan"
+                value="<?= $pasien['berat_badan']; ?>" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="tinggi_badan">Tinggi Badan</label>
+            <input class="form-control" name="tinggi_badan" id="tinggi_badan" type="number" placeholder="Tinggi Badan"
+                value="<?= $pasien['tinggi_badan']; ?>" />
+        </div>
+        <div class="mb-3">
             <label class="form-label" for="nomorHandphone">Nomor Handphone</label>
             <input class="form-control" name="nomorHp" id="nomorHandphone" type="number" value="<?= $pasien['no_hp'] ?>"
                 data-sb-validations="required" />

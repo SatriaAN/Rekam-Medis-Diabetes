@@ -18,13 +18,16 @@ class Dashboard extends BaseController
 
     public function index()
     {
-        // $dashboard =  $this->dashboardModel->findAll();
-        $data = [
-            'menu' => 'dashboard',
-            'dashboard' => $this->dashboardModel->get_report()
-        ];
+        $latestData = $this->dashboardModel->orderBy('idreport', 'DESC')->first();
 
-        return view('dashboard/index',$data);
+        // Pass data ke view
+        $data['dataBaruSistolik'] = $latestData ? $latestData['sistolik'] : null;
+        $data['dataBaruDiastolik'] = $latestData ? $latestData['diastolik'] : null;
+    
+        $data['menu'] = 'dashboard';
+        $data['dashboard'] = $this->dashboardModel->get_report();
+    
+        return view('dashboard/index', $data);
     }
 
     public function create()
@@ -168,6 +171,5 @@ class Dashboard extends BaseController
 
         echo json_encode($response);
     }
-
 
 }

@@ -43,6 +43,8 @@ class Pasien extends BaseController
         $email = $this->request->getVar('email');
         $nomorHp = $this->request->getVar('nomorHp');
         $umur = $this->request->getVar('umur');
+        $beratBadan = $this->request->getVar('beratBadan');
+        $tinggiBadan = $this->request->getVar('tinggiBadan');
         $jenisKelamin = $this->request->getVar('jenisKelamin');
         $alamat = $this->request->getVar('alamat');
         
@@ -61,9 +63,24 @@ class Pasien extends BaseController
                 ]
             ],
             'umur' => [
-                'rules' => 'required',
+                'rules' => 'required|max_length[3]',
                 'errors' => [
-                    'required' => '{field} Harus diisi'
+                    'required' => '{field} Harus diisi',
+                    'max_length' => 'Maksimal 3 Angka'
+                ]
+            ],
+            'beratBadan' => [
+                'rules' => 'required|max_length[3]',
+                'errors' => [
+                    'required' => 'Berat Badan Harus diisi',
+                    'max_length' => 'Maksimal 3 Angka'
+                ]
+            ],
+            'tinggiBadan' => [
+                'rules' => 'required|max_length[3]',
+                'errors' => [
+                    'required' => 'Tinggi Badan Harus diisi',
+                    'max_length' => 'Maksimal 3 Angka'
                 ]
             ],
             'nomorHp' => [
@@ -90,6 +107,8 @@ class Pasien extends BaseController
             'email' => $email,
             'no_hp' => $nomorHp,
             'umur' => $umur,
+            'tinggi_badan' => $tinggiBadan,
+            'berat_badan' => $beratBadan,
             'jenis_kelamin' => $jenisKelamin,
             'alamat' => $alamat,
         ];
@@ -113,6 +132,8 @@ class Pasien extends BaseController
         $email = $this->request->getVar('email');
         $nomorHp = $this->request->getVar('nomorHp');
         $umur = $this->request->getVar('umur');
+        $beratBadan = $this->request->getVar('berat_badan');
+        $tinggiBadan = $this->request->getVar('tinggi_badan');
         $jenisKelamin = $this->request->getVar('jenisKelamin');
         $alamat = $this->request->getVar('alamat');
 
@@ -122,6 +143,8 @@ class Pasien extends BaseController
             'email' => $email,
             'no_hp' => $nomorHp,
             'umur' => $umur,
+            'tinggi_badan' => $tinggiBadan,
+            'berat_badan' => $beratBadan,
             'jenis_kelamin' => $jenisKelamin,
             'alamat' => $alamat
         ];

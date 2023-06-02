@@ -22,6 +22,8 @@
     <link href="<?php echo base_url('css/sb-admin-2.min.css'); ?>" rel="stylesheet">
     <!-- Icon Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="<?= base_url('js/raphael.min.js'); ?>"></script>
+    <script src="<?= base_url('js/justgage.js'); ?>"></script>
 
 </head>
 
@@ -227,6 +229,7 @@
     <script src="<?= base_url('assetes/js/dist/sweetalert2.all.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/myscript.js') ?>"></script>
     <script>
+    // menampilkan chart" saat halaman di buka
     $(document).ready(function() {
         getReport();
         getReport2();
@@ -234,6 +237,7 @@
         getDiastolik();
     });
 
+    //  fungsi chart
     function chartReport(dataset) {
 
         // Area Chart Example   var thresholdValue = 100;
@@ -747,6 +751,39 @@
         });
     }
     </script>
+
+    <?php if (service('request')->uri->getPath() == 'dashboard') : ?>
+    <script>
+    // Ambil data dari PHP dan konversi menjadi variabel JavaScript
+    var dataBaruSistolik = <?php echo json_encode($dataBaruSistolik); ?>;
+    var dataBaruDiastolik = <?php echo json_encode($dataBaruDiastolik); ?>;
+
+    // Konfigurasi chart gauge
+    var config = {
+        id: "chartGaugeSistolik",
+        value: dataBaruSistolik,
+        min: 0,
+        max: 500,
+        decimals: 2,
+        gaugeWidthScale: 0.6
+    };
+
+    // Buat instance chart gauge
+    var gauge = new JustGage(config);
+
+    var config = {
+        id: "chartGaugeDiastolik",
+        value: dataBaruDiastolik,
+        min: 0,
+        max: 500,
+        decimals: 2,
+        gaugeWidthScale: 0.6
+    };
+
+    // Buat instance chart gauge
+    var gauge = new JustGage(config);
+    </script>
+    <?php endif; ?>
 
 </body>
 

@@ -55,6 +55,7 @@ $routes->add('/dashboard/edit/(:any)', 'Dashboard::edit/$1');
 $routes->add('/dashboard/update', 'Dashboard::update');
 $routes->get('/dashboard/delete/(:any)', 'Dashboard::delete/$1');
 $routes->post('/chart-report','Dashboard::showChartReport');
+$routes->post('/chart-gauge','Dashboard::showChartGauge');
 
 
 
