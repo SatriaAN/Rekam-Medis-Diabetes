@@ -220,7 +220,6 @@
 
     <!-- Page level custom scripts -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.min.js"></script>
     <script src="<?php echo base_url('js/demo/chart-area-demo.js'); ?>"></script>
     <script src="<?php echo base_url('js/demo/chart-pie-demo.js'); ?>"></script>
 

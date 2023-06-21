@@ -18,7 +18,6 @@ class Users extends BaseController
     public function index()
     {
 
-        $role = $this->usersModel->getUsers();
         $data = [
             'title' => 'Users',
             'users' => $this->usersModel->getUsers(),
@@ -42,11 +41,13 @@ class Users extends BaseController
         $id = $this->request->getVar('kode');
         $username = $this->request->getVar('username');
         $email = $this->request->getVar('email');
+        $user_id = $this->request->getVar('user_id');
 
         $data = [
             'id' => $id,
             'username' => $username,
             'email' => $email,
+            'user_id' => $user_id
         ];
 
         $this->usersModel->save($data);

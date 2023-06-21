@@ -32,10 +32,10 @@
                             <td><?= $user['email'] ?></td>
                             <td><?= $user['username'] ?></td>
                             <td><?= $user['group_name'] ?></td>
-                            <td><?= $user['telegram_id'] ?></td>
+                            <td><?= $user['user_id'] ?></td>
                             <td>
                                 <a class="btn btn-sm btn-warning"
-                                    href="<?= base_url('users/edit_user/' . $user['id']);?>">Edit</a>
+                                    href="<?= base_url('users/edit_user/' . $user['id']);?>">Ubah</a>
                                 <a class="btn btn-sm btn-danger tombolDelete"
                                     href="<?= base_url('users/delete_user/' . $user['id']);?>">Hapus</a>
                             </td>

@@ -46,7 +46,7 @@
     <header id="header" class="header fixed-top" data-scrollto-offset="0">
         <div class="container-fluid d-flex align-items-center justify-content-between">
 
-            <a href="index.html" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
+            <a href="<?php echo base_url('/');  ?>" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="assets/img/logo.png" alt=""> -->
                 <h1>Rekam Medis Diabetes<span>.</span></h1>
@@ -55,8 +55,8 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto" href="<?php echo base_url('/');  ?>">Home</a></li>
-                    <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
                     <li><a class="nav-link scrollto" href="<?php echo base_url('/dashboard'); ?>">Dashboard</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
                     <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle d-none"></i>
@@ -111,9 +111,224 @@
                         </div>
                     </div><!-- End Service Item -->
                 </div>
-
             </div>
         </section><!-- End Featured Services Section -->
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-header">
+                    <h2>About Us</h2>
+                    <p>Architecto nobis eos vel nam quidem vitae temporibus voluptates qui hic deserunt iusto omnis
+                        nam voluptas asperiores sequi tenetur dolores incidunt enim voluptatem magnam cumque fuga.
+                    </p>
+                </div>
+
+                <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
+
+                    <div class="col-lg-5">
+                        <div class="about-img">
+                            <img src="assets/img/about.jpg" class="img-fluid" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <h3 class="pt-0 pt-lg-5">Neque officiis dolore maiores et exercitationem quae est seda
+                            lidera pat claero</h3>
+
+                        <!-- Tabs -->
+                        <ul class="nav nav-pills mb-3">
+                            <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1">Saepe fuga</a></li>
+                            <li><a class="nav-link" data-bs-toggle="pill" href="#tab2">Voluptates</a></li>
+                            <li><a class="nav-link" data-bs-toggle="pill" href="#tab3">Corrupti</a></li>
+                        </ul><!-- End Tabs -->
+
+                        <!-- Tab Content -->
+                        <div class="tab-content">
+
+                            <div class="tab-pane fade show active" id="tab1">
+
+                                <p class="fst-italic">Consequuntur inventore voluptates consequatur aut vel et. Eos
+                                    doloribus expedita. Sapiente atque consequatur minima nihil quae aspernatur quo
+                                    suscipit voluptatem.</p>
+
+                                <div class="d-flex align-items-center mt-4">
+                                    <i class="bi bi-check2"></i>
+                                    <h4>Repudiandae rerum velit modi et officia quasi facilis</h4>
+                                </div>
+                                <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima
+                                    commodi dolorum non eveniet magni quaerat nemo et.</p>
+
+                                <div class="d-flex align-items-center mt-4">
+                                    <i class="bi bi-check2"></i>
+                                    <h4>Incidunt non veritatis illum ea ut nisi</h4>
+                                </div>
+                                <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta
+                                    tenetur. Iure molestiae assumenda sunt qui inventore eligendi voluptates nisi
+                                    at. Dolorem quo tempora. Quia et perferendis.</p>
+
+                                <div class="d-flex align-items-center mt-4">
+                                    <i class="bi bi-check2"></i>
+                                    <h4>Omnis ab quia nemo dignissimos rem eum quos..</h4>
+                                </div>
+                                <p>Eius alias aut cupiditate. Dolor voluptates animi ut blanditiis quos nam. Magnam
+                                    officia aut ut alias quo explicabo ullam esse. Sunt magnam et dolorem eaque
+                                    magnam odit enim quaerat. Vero error error voluptatem eum.</p>
+
+                            </div><!-- End Tab 1 Content -->
+
+                            <div class="tab-pane fade show" id="tab2">
+
+                                <p class="fst-italic">Consequuntur inventore voluptates consequatur aut vel et. Eos
+                                    doloribus expedita. Sapiente atque consequatur minima nihil quae aspernatur quo
+                                    suscipit voluptatem.</p>
+
+                                <div class="d-flex align-items-center mt-4">
+                                    <i class="bi bi-check2"></i>
+                                    <h4>Repudiandae rerum velit modi et officia quasi facilis</h4>
+                                </div>
+                                <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima
+                                    commodi dolorum non eveniet magni quaerat nemo et.</p>
+
+                                <div class="d-flex align-items-center mt-4">
+                                    <i class="bi bi-check2"></i>
+                                    <h4>Incidunt non veritatis illum ea ut nisi</h4>
+                                </div>
+                                <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta
+                                    tenetur. Iure molestiae assumenda sunt qui inventore eligendi voluptates nisi
+                                    at. Dolorem quo tempora. Quia et perferendis.</p>
+
+                                <div class="d-flex align-items-center mt-4">
+                                    <i class="bi bi-check2"></i>
+                                    <h4>Omnis ab quia nemo dignissimos rem eum quos..</h4>
+                                </div>
+                                <p>Eius alias aut cupiditate. Dolor voluptates animi ut blanditiis quos nam. Magnam
+                                    officia aut ut alias quo explicabo ullam esse. Sunt magnam et dolorem eaque
+                                    magnam odit enim quaerat. Vero error error voluptatem eum.</p>
+
+                            </div><!-- End Tab 2 Content -->
+
+                            <div class="tab-pane fade show" id="tab3">
+
+                                <p class="fst-italic">Consequuntur inventore voluptates consequatur aut vel et. Eos
+                                    doloribus expedita. Sapiente atque consequatur minima nihil quae aspernatur quo
+                                    suscipit voluptatem.</p>
+
+                                <div class="d-flex align-items-center mt-4">
+                                    <i class="bi bi-check2"></i>
+                                    <h4>Repudiandae rerum velit modi et officia quasi facilis</h4>
+                                </div>
+                                <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima
+                                    commodi dolorum non eveniet magni quaerat nemo et.</p>
+
+                                <div class="d-flex align-items-center mt-4">
+                                    <i class="bi bi-check2"></i>
+                                    <h4>Incidunt non veritatis illum ea ut nisi</h4>
+                                </div>
+                                <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta
+                                    tenetur. Iure molestiae assumenda sunt qui inventore eligendi voluptates nisi
+                                    at. Dolorem quo tempora. Quia et perferendis.</p>
+
+                                <div class="d-flex align-items-center mt-4">
+                                    <i class="bi bi-check2"></i>
+                                    <h4>Omnis ab quia nemo dignissimos rem eum quos..</h4>
+                                </div>
+                                <p>Eius alias aut cupiditate. Dolor voluptates animi ut blanditiis quos nam. Magnam
+                                    officia aut ut alias quo explicabo ullam esse. Sunt magnam et dolorem eaque
+                                    magnam odit enim quaerat. Vero error error voluptatem eum.</p>
+
+                            </div><!-- End Tab 3 Content -->
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End About Section -->
+        <section>
+            <!-- ======= Contact Section ======= -->
+            <section id="contact" class="contact">
+                <div class="container">
+
+                    <div class="section-header">
+                        <h2>Contact Us</h2>
+                        <p>Ea vitae aspernatur deserunt voluptatem impedit deserunt magnam occaecati dssumenda quas ut
+                            ad dolores adipisci aliquam.</p>
+                    </div>
+
+                </div>
+                <div class="container">
+
+                    <div class="row gy-5 gx-lg-5">
+
+                        <div class="col-lg-4">
+
+                            <div class="info">
+                                <h3>Get in touch</h3>
+                                <p>Et id eius voluptates atque nihil voluptatem enim in tempore minima sit ad mollitia
+                                    commodi minus.</p>
+
+                                <div class="info-item d-flex">
+                                    <i class="bi bi-geo-alt flex-shrink-0"></i>
+                                    <div>
+                                        <h4>Location:</h4>
+                                        <p>A108 Adam Street, New York, NY 535022</p>
+                                    </div>
+                                </div><!-- End Info Item -->
+
+                                <div class="info-item d-flex">
+                                    <i class="bi bi-envelope flex-shrink-0"></i>
+                                    <div>
+                                        <h4>Email:</h4>
+                                        <p>info@example.com</p>
+                                    </div>
+                                </div><!-- End Info Item -->
+
+                                <div class="info-item d-flex">
+                                    <i class="bi bi-phone flex-shrink-0"></i>
+                                    <div>
+                                        <h4>Call:</h4>
+                                        <p>+1 5589 55488 55</p>
+                                    </div>
+                                </div><!-- End Info Item -->
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-8">
+                            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <input type="text" name="name" class="form-control" id="name"
+                                            placeholder="Your Name" required>
+                                    </div>
+                                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                                        <input type="email" class="form-control" name="email" id="email"
+                                            placeholder="Your Email" required>
+                                    </div>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <input type="text" class="form-control" name="subject" id="subject"
+                                        placeholder="Subject" required>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <textarea class="form-control" name="message" placeholder="Message"
+                                        required></textarea>
+                                </div>
+                                <div class="my-3">
+                                    <div class="loading">Loading</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                                </div>
+                                <div class="text-center"><button type="submit">Send Message</button></div>
+                            </form>
+                        </div><!-- End Contact Form -->
+            </section>
+
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->

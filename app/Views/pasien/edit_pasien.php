@@ -57,7 +57,8 @@
             <div class="invalid-feedback" data-sb-feedback="alamat:required">Alamat is required.</div>
         </div>
         <div class="d-grid">
-            <button class="btn btn-primary btn-lg" type="submit">Simpan Data</button>
+            <button class="btn btn-success btn-lg" type="submit">Simpan Data</button>
+            <a class="btn btn-primary btn-lg mt-3" href="<?= base_url('/pasien'); ?>">Kembali</a>
         </div>
     </form>
 </div>

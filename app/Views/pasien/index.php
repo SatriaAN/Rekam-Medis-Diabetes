@@ -48,7 +48,7 @@
                             <td><?= $p['alamat'] ?></td>
                             <td>
                                 <a class="btn btn-sm btn-warning"
-                                    href="<?= base_url('pasien/edit_pasien/' . $p['idpasien']);?>">Edit</a>
+                                    href="<?= base_url('pasien/edit_pasien/' . $p['idpasien']);?>">Ubah</a>
                                 &nbsp;
                                 <a class="btn btn-sm btn-danger tombolDelete"
                                     href="<?= base_url('pasien/delete_pasien/' . $p['idpasien']);?>">Hapus</a>

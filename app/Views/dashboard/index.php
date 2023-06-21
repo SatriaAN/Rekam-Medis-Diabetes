@@ -138,7 +138,7 @@
                                         <td><?= $d['tanggal']; ?></td>
                                         <td>
                                             <a class="btn btn-sm btn-warning"
-                                                href="<?= base_url('dashboard/edit/' . $d['idreport']);?>">Edit</a>
+                                                href="<?= base_url('dashboard/edit/' . $d['idreport']);?>">Ubah</a>
                                             &nbsp;
                                             <a class="btn btn-sm btn-danger tombolDelete"
                                                 href="<?= base_url('dashboard/delete/' . $d['idreport']);?>">Hapus</a>
